@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="libs/jquery.tablesorter/dist/css/theme.blue.min.css">
+  <title></title>
+</head>
+<body>
+
+  <section id="main">
+    <button id="boton">Mostrar</button>
+    <table id="myTable" class="tablesorter">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>NOMBRE</th>
+          <th>DESCRIPCION</th>
+          <th>PAIS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>IBS</td>
+          <td>Sistema IBS</td>
+          <td>AR</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>IBS</td>
+          <td>Sistema IBS</td>
+          <td>AR</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>IBS</td>
+          <td>Sistema IBS</td>
+          <td>AR</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>IBS</td>
+          <td>Sistema IBS</td>
+          <td>AR</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section id="modals"></section>
+
+  <script src="libs/get-template.js"></script>
+  <script src="libs/jquery/dist/jquery.min.js"></script>
+  <script src="libs/underscore/underscore-min.js"></script>
+  <script src="libs/backbone/backbone-min.js"></script>
+  <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="libs/swig.min.js"></script>
+
+  <script src="libs/jquery.tablesorter/dist/js/jquery.tablesorter.js"></script>
+  <script src="libs/jquery.tablesorter/dist/js/jquery.tablesorter.widgets.js"></script>
+  <script src="js/main.js"></script>
+  <!-- Vista -->
+  <script src="js/views/crud.js"></script>
+
+  <script>
+
+    $(function () {
+
+      //$('#myTable').tablesorter();
+      $("#myTable").tablesorter({ sortList: [[0,0], [1,0]] });
+      $('#boton').on('click', function () {
+
+        var view = new App.Views.Crud({
+
+          title : 'Sistema',
+          fields : {
+
+            ID : {},
+            NOMBRE : {},
+            DESCRIPCION : {},
+            PAIS : {
+
+              options : [
+                  {
+                    content : 'Argentina',
+                    value : 'AR'
+                  },
+                  {
+                    content : 'Peru',
+                    value : 'PE'
+                  },
+                  {
+                    content : 'Colombia',
+                    value : 'CO'
+                  }
+                ]
+            },
+            SYSTEM : {},
+            TARGET : {},
+            CATEGORY : {},
+            ISO2CODE : {},
+            ISO3CODE : {},
+            COUNTRYID : {}
+
+          }
+
+        });
+        $('#modals').append(view.el);
+        view.render();
+        view.$el.modal('show');
+
+      });
+
+    });
+
+  </script>
+</body>
+</html>

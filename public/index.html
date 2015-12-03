@@ -61,6 +61,7 @@
   <script src="js/main.js"></script>
   <!-- Vista -->
   <script src="js/views/crud.js"></script>
+  <script src="js/views/job.js"></script>
 
   <script>
 
@@ -70,7 +71,7 @@
       $("#myTable").tablesorter({ sortList: [[0,0], [1,0]] });
       $('#boton').on('click', function () {
 
-        var view = new App.Views.Crud({
+        /*var view = new App.Views.Crud({
 
           title : 'Sistema',
           fields : {
@@ -104,6 +105,8 @@
 
           }
 
+        });*/
+        var view = new App.Views.Job({
         });
         $('#modals').append(view.el);
         view.render();

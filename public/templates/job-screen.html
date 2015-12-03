@@ -1,0 +1,40 @@
+<div class="modal-dialog" style="width: 90%">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>{{ job }}</h3>
+    </div>
+    <div class="modal-body">
+      <label for="proyecto">Proyecto</label>
+      <input id="proyecto" class="form-control" type="text" name="proyecto" value="{{ proyecto }}">
+      <label for="descripcion">Descripcion</label>
+      <textarea id="descripcion" class="form-control" name="descripcion" cols="30" rows="10">{{ descripcion }}</textarea>
+      <div class="row job-table">
+        <div class="col-md-3">
+          <div class="job-table-list">
+            <div class="list-group">
+              {% for table in tables %}
+                <div class="list-group-item">{{ loop.key }}</div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="job-table-content">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <div class="row">
+        <div class="col-md-6">
+          <button class="job-validar btn btn-primary">Validar</button>
+          <button class="job-importar btn btn-success">Importar</button>
+        </div>
+        <div class="col-md-6">
+          <button class="job-ok btn btn-success glyphicon glyphicon-ok"></button>
+          <button class="job-cancel btn btn-danger glyphicon glyphicon-remove" data-dismiss="modal"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
